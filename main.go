@@ -8,9 +8,9 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
-	"platzi.com/go/rest-ws/handlers"
-	"platzi.com/go/rest-ws/middleware"
-	"platzi.com/go/rest-ws/server"
+	"github.com/lmarcela/go-rest-websockets/handlers"
+	"github.com/lmarcela/go-rest-websockets/middleware"
+	"github.com/lmarcela/go-rest-websockets/server"
 )
 
 func main() {

@@ -8,11 +8,11 @@ import (
 
 	"github.com/golang-jwt/jwt"
 	"github.com/gorilla/mux"
+	"github.com/lmarcela/go-rest-websockets/events"
+	"github.com/lmarcela/go-rest-websockets/models"
+	"github.com/lmarcela/go-rest-websockets/repository"
+	"github.com/lmarcela/go-rest-websockets/server"
 	"github.com/segmentio/ksuid"
-	"platzi.com/go/rest-ws/events"
-	"platzi.com/go/rest-ws/models"
-	"platzi.com/go/rest-ws/repository"
-	"platzi.com/go/rest-ws/server"
 )
 
 type UpsertPostRequest struct {

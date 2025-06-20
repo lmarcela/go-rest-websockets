@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"platzi.com/go/rest-ws/server"
+	"github.com/lmarcela/go-rest-websockets/server"
 )
 
 type HomeResponse struct {

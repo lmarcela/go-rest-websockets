@@ -7,10 +7,10 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/lmarcela/go-rest-websockets/database"
+	"github.com/lmarcela/go-rest-websockets/repository"
+	"github.com/lmarcela/go-rest-websockets/websocket"
 	"github.com/rs/cors"
-	"platzi.com/go/rest-ws/database"
-	"platzi.com/go/rest-ws/repository"
-	"platzi.com/go/rest-ws/websocket"
 )
 
 type Config struct {

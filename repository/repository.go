@@ -3,7 +3,7 @@ package repository
 import (
 	"context"
 
-	"platzi.com/go/rest-ws/models"
+	"github.com/lmarcela/go-rest-websockets/models"
 )
 
 type Repository interface {

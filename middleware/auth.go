@@ -5,8 +5,8 @@ import (
 	"strings"
 
 	"github.com/golang-jwt/jwt"
-	"platzi.com/go/rest-ws/models"
-	"platzi.com/go/rest-ws/server"
+	"github.com/lmarcela/go-rest-websockets/models"
+	"github.com/lmarcela/go-rest-websockets/server"
 )
 
 var (

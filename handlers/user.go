@@ -7,11 +7,11 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt"
+	"github.com/lmarcela/go-rest-websockets/models"
+	"github.com/lmarcela/go-rest-websockets/repository"
+	"github.com/lmarcela/go-rest-websockets/server"
 	"github.com/segmentio/ksuid"
 	"golang.org/x/crypto/bcrypt"
-	"platzi.com/go/rest-ws/models"
-	"platzi.com/go/rest-ws/repository"
-	"platzi.com/go/rest-ws/server"
 )
 
 const (
