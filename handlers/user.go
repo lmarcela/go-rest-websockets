@@ -15,7 +15,8 @@ import (
 )
 
 const (
-	HASH_COST = 8
+	HASH_COST  = 8
+	EXPIRES_IN = 2 * time.Hour * 24 // 2 days
 )
 
 type SignUpResponse struct {
@@ -93,7 +94,7 @@ func LoginHandler(s server.Server) http.HandlerFunc {
 		claims := models.AppClaims{
 			UserId: user.Id,
 			StandardClaims: jwt.StandardClaims{
-				ExpiresAt: time.Now().Add(2 * time.Hour * 24).Unix(),
+				ExpiresAt: time.Now().Add(EXPIRES_IN).Unix(),
 			},
 		}
 		token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
