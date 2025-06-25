@@ -158,19 +158,37 @@ func UpdatePostByIdHandler(s server.Server) http.HandlerFunc {
 	}
 }
 
+func parseQueryUint64(r *http.Request, key string, defaultValue uint64, failOnInvalid bool) (uint64, error) {
+	valStr := r.URL.Query().Get(key)
+	if valStr == "" {
+		return defaultValue, nil
+	}
+
+	val, err := strconv.ParseUint(valStr, 10, 64)
+	if err != nil {
+		if failOnInvalid {
+			return 0, err
+		}
+		return defaultValue, nil
+	}
+	return val, nil
+}
+
 func ListPostHandler(s server.Server) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var err error
-		pageStr := r.URL.Query().Get("page")
-		var page = uint64(0)
-		if pageStr != "" {
-			page, err = strconv.ParseUint(pageStr, 10, 64)
-			if err != nil {
-				http.Error(w, err.Error(), http.StatusBadRequest)
-				return
-			}
+		page, err := parseQueryUint64(r, "page", 0, true)
+		if err != nil {
+			http.Error(w, "Invalid 'page' parameter", http.StatusBadRequest)
+			return
 		}
-		posts, err := repository.ListPost(r.Context(), page)
+
+		size, err := parseQueryUint64(r, "size", 10, false)
+		if err != nil {
+			http.Error(w, "Invalid 'size' parameter", http.StatusBadRequest)
+			return
+		}
+
+		posts, err := repository.ListPost(r.Context(), page, size)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return

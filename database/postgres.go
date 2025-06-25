@@ -115,8 +115,8 @@ func (repo *PostgresRepository) UpdatePost(ctx context.Context, post *models.Pos
 	return err
 }
 
-func (repo *PostgresRepository) ListPost(ctx context.Context, page uint64) ([]*models.Post, error) {
-	rows, err := repo.db.QueryContext(ctx, "SELECT id, post_content, user_id, created_at FROM posts LIMIT $1 OFFSET $2", 5, page*5)
+func (repo *PostgresRepository) ListPost(ctx context.Context, page, size uint64) ([]*models.Post, error) {
+	rows, err := repo.db.QueryContext(ctx, "SELECT id, post_content, user_id, created_at FROM posts LIMIT $1 OFFSET $2", size, page*size)
 	if err != nil {
 		return nil, err
 	}
