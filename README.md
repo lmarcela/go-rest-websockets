@@ -39,3 +39,7 @@ From the project root directory:
    ```bash
    docker-compose up -d
    ```
+
+## Connect from the frontend to websocket
+
+Open the test.html file in your browser with the server running.
