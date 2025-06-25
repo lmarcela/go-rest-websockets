@@ -23,3 +23,19 @@ To start the PostgreSQL database container, follow these steps:
    ```
 
    📌 This maps the container's default PostgreSQL port (5432) to your local machine on port 54321.
+
+## 🐳 Running the App with Docker
+
+From the project root directory:
+
+1. Build the Docker image:
+
+   ```bash
+   docker build . -t go-rest-websockets-app
+   ```
+
+2. Run the container and expose the port:
+
+   ```bash
+   docker-compose up -d
+   ```

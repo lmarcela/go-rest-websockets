@@ -52,7 +52,8 @@ func BindRoutes(s server.Server, r *mux.Router) {
 	api.HandleFunc("/posts/{postId}", handlers.DeletePostByIdHandler(s)).Methods(http.MethodDelete)
 	api.HandleFunc("/posts/{postId}", handlers.UpdatePostByIdHandler(s)).Methods(http.MethodPut)
 	r.HandleFunc("/api/v1/posts/{postId}", handlers.GetPostByIDHandler(s)).Methods(http.MethodGet)
+	// EX: http://localhost:5050/api/v1/posts?page=0
 	r.HandleFunc("/api/v1/posts", handlers.ListPostHandler(s)).Methods(http.MethodGet)
-
+	// WebSocket connection --> localhost:5050/ws
 	r.HandleFunc("/ws", s.Hub().HandleWebSocket)
 }
